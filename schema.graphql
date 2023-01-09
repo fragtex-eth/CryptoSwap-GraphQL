@@ -1,0 +1,7 @@
+type Swap @entity {
+  id: ID!
+  buyer: Bytes!
+  tokenIn: Bytes!
+  amountIn: BigInt!
+  amountOut: BigInt!
+}

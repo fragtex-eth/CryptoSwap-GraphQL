@@ -1,0 +1,24 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SimpleSwap
+    network: goerli
+    source:
+      address: "0x72BB6dd013FA4404101B62eC848B77f535634b39"
+      abi: SimpleSwap
+      startBlock: 8278141
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Swap
+      abis:
+        - name: SimpleSwap
+          file: ./abis/SimpleSwap.json
+      eventHandlers:
+        - event: Swap(indexed address,indexed address,uint256,uint256)
+          handler: handleSwap
+      file: ./src/simple-swap.ts
